@@ -1,4 +1,4 @@
-# Flyover Indies
+# NextJS Starter Blog Template with Markdown Files
 
 ## Getting Started
 
