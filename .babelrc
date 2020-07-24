@@ -1,0 +1,13 @@
+// not:
+// preset-env
+// preset-react
+// preset-typescript
+// plugin-proposal-class-properties
+// plugin-proposal-object-rest-spread
+// plugin-transform-runtime
+// styled-jsx
+{
+  "presets": [
+    "airbnb"
+  ]
+}
