@@ -10,7 +10,7 @@ const formattedDate = (date) => {
 export const fileContent = (directory, file) => {
   // retrieve content from file
   const markdownWithMetadata = fs
-    .readFileSync(`src/content/${directory}/${file}`)
+    .readFileSync(`${process.cwd()}/src/content/${directory}/${file}`)
     .toString();
 
   // parse markdown and format date
@@ -35,9 +35,7 @@ export const directoryContent = (directory) => {
   // retrieve content from files
   const fileContents = files.map((file) => fileContent(directory, file));
 
-  return {
-    fileContents,
-  };
+  return fileContents;
 };
 
 export const slugs = (directory) => {

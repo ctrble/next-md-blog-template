@@ -8,7 +8,7 @@ import Test from '../components/Test';
 const Home = ({ about, posts, post }) => {
   return (
     <div>
-      {about.fileContents.map(({ frontmatter, content }) => (
+      {about.map(({ frontmatter, content }) => (
         <article key={frontmatter.title}>
           <header>
             <h3>{frontmatter.title}</h3>
@@ -22,7 +22,7 @@ const Home = ({ about, posts, post }) => {
         </article>
       ))}
 
-      {posts.fileContents.map(({ slug, frontmatter, content }) => (
+      {posts.map(({ slug, frontmatter, content }) => (
         <article key={frontmatter.title}>
           <header>
             <h3>{frontmatter.title}</h3>
