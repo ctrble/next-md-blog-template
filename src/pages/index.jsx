@@ -1,14 +1,14 @@
-import React from "react";
-import fs from "fs";
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown/with-html";
+import React from 'react';
+import Link from 'next/link';
+import ReactMarkdown from 'react-markdown/with-html';
+import { directoryContent, fileContent } from '../lib/getContent';
 
-import Test from "../components/Test";
+import Test from '../components/Test';
 
-export default function Home({ fileContents }) {
+const Home = ({ about, posts, post }) => {
   return (
     <div>
-      {fileContents.map(({ frontmatter, content }) => (
+      {about.fileContents.map(({ frontmatter, content }) => (
         <article key={frontmatter.title}>
           <header>
             <h3>{frontmatter.title}</h3>
@@ -21,45 +21,52 @@ export default function Home({ fileContents }) {
           <Test />
         </article>
       ))}
+
+      {posts.fileContents.map(({ slug, frontmatter, content }) => (
+        <article key={frontmatter.title}>
+          <header>
+            <h3>{frontmatter.title}</h3>
+            <span>{frontmatter.date}</span>
+          </header>
+          <section>
+            <p>{frontmatter.description}</p>
+          </section>
+          <Link href={'/posts/[slug]'} as={`/posts/${slug}`}>
+            <a>{frontmatter.title}</a>
+          </Link>
+          <ReactMarkdown escapeHtml={false} source={content} />
+          <Test />
+        </article>
+      ))}
+
+      <article key={post.frontmatter.title}>
+        <header>
+          <h3>{post.frontmatter.title}</h3>
+          <span>{post.frontmatter.date}</span>
+        </header>
+        <section>
+          <p>{post.frontmatter.description}</p>
+        </section>
+        <ReactMarkdown escapeHtml={false} source={post.content} />
+        <Test />
+      </article>
     </div>
   );
-}
+};
 
-export async function getServerSideProps() {
-  const aboutPath = "src/content/about";
+export async function getStaticProps() {
+  const about = directoryContent('about');
+  const posts = directoryContent('posts');
 
-  // get files
-  const files = fs.readdirSync(`${process.cwd()}/${aboutPath}`);
-
-  // retrieve content from files
-  const fileContents = files.map((filename) => {
-    const markdownWithMetadata = fs
-      .readFileSync(`${aboutPath}/${filename}`)
-      .toString();
-
-    const { data, content } = matter(markdownWithMetadata);
-
-    // convert date to format: Month day, Year
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = data.date.toLocaleDateString("en-US", options);
-
-    // update data with the formatted date
-    const frontmatter = {
-      ...data,
-      date: formattedDate,
-    };
-
-    // use the filename as the slug and return the content
-    return {
-      slug: filename.replace(".md", ""),
-      frontmatter,
-      content,
-    };
-  });
+  const post = fileContent('posts', `init.md`);
 
   return {
     props: {
-      fileContents,
+      about,
+      posts,
+      post,
     },
   };
 }
+
+export default Home;
