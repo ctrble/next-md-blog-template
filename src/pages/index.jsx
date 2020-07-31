@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown/with-html';
 import { directoryContent, fileContent } from '../lib/getContent';
 
-import Test from '../components/Test';
+import Header from '../components/Header';
 
 const Home = ({ about, posts, post }) => {
   return (
@@ -18,7 +18,7 @@ const Home = ({ about, posts, post }) => {
             <p>{frontmatter.description}</p>
           </section>
           <ReactMarkdown escapeHtml={false} source={content} />
-          <Test />
+          <Header />
         </article>
       ))}
 
@@ -35,7 +35,7 @@ const Home = ({ about, posts, post }) => {
             <a>{frontmatter.title}</a>
           </Link>
           <ReactMarkdown escapeHtml={false} source={content} />
-          <Test />
+          <Header />
         </article>
       ))}
 
@@ -48,7 +48,7 @@ const Home = ({ about, posts, post }) => {
           <p>{post.frontmatter.description}</p>
         </section>
         <ReactMarkdown escapeHtml={false} source={post.content} />
-        <Test />
+        <Header />
       </article>
     </div>
   );

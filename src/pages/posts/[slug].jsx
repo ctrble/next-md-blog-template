@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown/with-html';
 import { fileContent, slugs } from '../../lib/getContent';
 
-import Test from '../../components/Test';
+import Header from '../../components/Header';
 
 const Slug = ({ post }) => {
   return (
@@ -15,7 +15,7 @@ const Slug = ({ post }) => {
         <p>{post.frontmatter.description}</p>
       </section>
       <ReactMarkdown escapeHtml={false} source={post.content} />
-      <Test />
+      <Header />
     </article>
   );
 };
