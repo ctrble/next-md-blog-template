@@ -33,7 +33,11 @@ export const directoryContent = (directory) => {
   const files = fs.readdirSync(`${process.cwd()}/src/content/${directory}`);
 
   // retrieve content from files
-  const fileContents = files.map((file) => fileContent(directory, file));
+  const fileContents = files
+    .map((file) => fileContent(directory, file))
+    .sort(
+      (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+    );
 
   return fileContents;
 };
