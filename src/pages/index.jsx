@@ -4,12 +4,10 @@ import ReactMarkdown from 'react-markdown/with-html';
 import { directoryContent } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
-import PostsNav from 'src/components/PostsNav';
 
 const Home = ({ about, posts }) => {
   return (
     <div>
-      <PostsNav posts={posts} />
       {about.map(({ frontmatter, content }) => (
         <article key={frontmatter.title}>
           <header>

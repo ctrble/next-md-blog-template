@@ -30,7 +30,10 @@ export const fileContent = (directory, file) => {
 
 export const directoryContent = (directory) => {
   // get files from content directory
-  const files = fs.readdirSync(`${process.cwd()}/src/content/${directory}`);
+  const files = fs.readdirSync(
+    `${process.cwd()}/src/content/${directory}`,
+    'utf8'
+  );
 
   // retrieve content from files
   const fileContents = files

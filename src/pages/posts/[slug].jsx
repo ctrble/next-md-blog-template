@@ -5,12 +5,10 @@ import { fileContent, directoryContent, slugs } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
 import PostLayout from 'src/components/layouts/PostLayout';
-import PostsNav from 'src/components/PostsNav';
 
 const Slug = ({ post, posts }) => {
   return (
     <>
-      <PostsNav posts={posts} />
       <article key={post.frontmatter.title}>
         <header>
           <h3>{post.frontmatter.title}</h3>
