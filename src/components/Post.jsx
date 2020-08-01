@@ -6,7 +6,7 @@ const Post = ({ title, date, description, content }) => (
     <header>
       <h3>{title}</h3>
       <span>{date}</span>
-      {/* <p>{description}</p> */}
+      <p>{description}</p>
     </header>
 
     <ReactMarkdown escapeHtml={false} source={content} />
