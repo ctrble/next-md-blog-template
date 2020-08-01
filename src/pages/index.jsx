@@ -1,36 +1,31 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
 
 import { directoryContent } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
+import Excerpt from 'src/components/Excerpt';
 
-const Home = ({ about, posts }) => {
+const Home = ({ posts }) => {
   return (
     <div>
-      {about.map(({ frontmatter, content }) => (
-        <article key={frontmatter.title}>
-          <header>
-            <h3>{frontmatter.title}</h3>
-            <span>{frontmatter.date}</span>
-          </header>
-          <section>
-            <p>{frontmatter.description}</p>
-          </section>
-          <ReactMarkdown escapeHtml={false} source={content} />
-        </article>
+      {posts.map(({ frontmatter, slug, content }) => (
+        <Excerpt
+          title={frontmatter.title}
+          date={frontmatter.date}
+          description={frontmatter.description}
+          slug={slug}
+          content={content}
+        />
       ))}
     </div>
   );
 };
 
 export async function getStaticProps() {
-  const about = directoryContent('about');
   const posts = directoryContent('posts');
 
   return {
     props: {
-      about,
       posts,
     },
   };
