@@ -7,7 +7,7 @@ import Excerpt from 'src/components/Excerpt';
 
 const Home = ({ posts }) => {
   return (
-    <div>
+    <>
       {posts.map(({ frontmatter, slug, content }) => (
         <Excerpt
           title={frontmatter.title}
@@ -17,7 +17,7 @@ const Home = ({ posts }) => {
           content={content}
         />
       ))}
-    </div>
+    </>
   );
 };
 

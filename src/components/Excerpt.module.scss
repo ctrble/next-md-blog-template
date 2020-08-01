@@ -1,37 +1,37 @@
 @import 'src/lib/utilities.scss';
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: $primary-light-color;
-  @media (prefers-color-scheme: dark) {
-    background-color: $secondary-dark-color;
-  }
+.excerpt {
+  max-width: 80ch;
+  font-size: 1.2rem;
+  width: 100%;
+  margin: 2rem 0;
 }
 
-.nav {
-  flex: 1 0 auto;
-  display: flex;
-  justify-content: flex-start;
+.header {
+  font-family: $serif;
+  color: $primary-light-color;
+  font-size: 1.6rem;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
 }
 
 .link {
-  margin: 0 0.5rem;
-  padding: 0.5rem;
+  // margin: 0.5rem auto;
+  // padding: 0.5rem;
   font-family: $sans-serif;
+  text-align: center;
   font-size: 2rem;
   font-variation-settings: 'wght' 900;
   text-decoration: none;
-  color: $secondary-light-color;
+  color: $accent-light-color;
   @media (prefers-color-scheme: dark) {
-    color: $primary-dark-color;
+    color: $accent-dark-color;
   }
   &:hover {
-    color: $accent-light-color;
+    color: $primary-light-color;
     @media (prefers-color-scheme: dark) {
-      color: $accent-dark-color;
+      color: $secondary-dark-color;
     }
   }
   &:focus {

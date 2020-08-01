@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../Header';
 
+import styles from './SiteLayout.module.scss';
+
 const SiteLayout = ({ children }) => (
   <>
     <Header />
-    <div>{children}</div>
+    <main className={styles.layout}>{children}</main>
   </>
 );
 
