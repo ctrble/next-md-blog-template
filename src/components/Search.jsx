@@ -46,12 +46,12 @@ export default function Search() {
       />
       {active && results.length > 0 && (
         <ul>
-          {results.map(({ slug, frontmatter, content }) => (
+          {results.map(({ slug, frontmatter }) => (
             <li key={slug}>
               <Link href="/posts/[slug]" as={`/posts/${slug}`}>
                 <a>{frontmatter.title}</a>
               </Link>
-              {content}
+              {frontmatter.description}
             </li>
           ))}
         </ul>
