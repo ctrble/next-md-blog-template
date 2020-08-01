@@ -2,6 +2,8 @@ import React from 'react';
 import App from 'next/app';
 import SiteLayout from '../components/layouts/SiteLayout';
 
+import 'src/pages/global.scss';
+
 class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
