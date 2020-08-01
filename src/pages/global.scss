@@ -58,6 +58,16 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  // And don't hurt eyes in the dark
+  @media (prefers-color-scheme: dark) {
+    img {
+      opacity: 0.75;
+      transition: opacity 0.5s ease-in-out;
+    }
+    img:hover {
+      opacity: 1;
+    }
+  }
 }
 
 // Inherit fonts for inputs and buttons

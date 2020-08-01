@@ -1,0 +1,29 @@
+// fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@531&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@515&display=swap');
+
+$sans-serif: 'Epilogue', sans-serif;
+$serif: 'Kreon', serif;
+
+$page-color: gray;
+
+// light mode
+
+$undefaced-off-white: #ffffe4;
+$self-addressed-pinkish-brown: #b17261;
+$accosted-brick-red: #8f1402;
+
+$primary-light-color: $accosted-brick-red;
+$secondary-light-color: $undefaced-off-white;
+$accent-light-color: $self-addressed-pinkish-brown;
+
+// dark mode
+
+$annihilating-duck-egg-blue: #c3fbf4;
+$abstemious-off-blue: #5684ae;
+$divorced-black: #000000;
+
+$primary-dark-color: $divorced-black;
+$secondary-dark-color: $annihilating-duck-egg-blue;
+$accent-dark-color: $abstemious-off-blue;
