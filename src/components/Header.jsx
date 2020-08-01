@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Search from 'src/components/Search';
+
 import styles from './Header.module.scss';
 
 const Header = () => (
@@ -8,6 +10,7 @@ const Header = () => (
     <Link href={'/'}>
       <a>Home</a>
     </Link>
+    <Search />
   </header>
 );
 
