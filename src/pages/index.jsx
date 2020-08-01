@@ -1,13 +1,15 @@
 import React from 'react';
-import Link from 'next/link';
 import ReactMarkdown from 'react-markdown/with-html';
-import { directoryContent, fileContent } from '../lib/getContent';
 
-import Header from '../components/Header';
+import { directoryContent } from 'src/lib/getContent';
 
-const Home = ({ about, posts, post }) => {
+import SiteLayout from 'src/components/layouts/SiteLayout';
+import PostsNav from 'src/components/PostsNav';
+
+const Home = ({ about, posts }) => {
   return (
     <div>
+      <PostsNav posts={posts} />
       {about.map(({ frontmatter, content }) => (
         <article key={frontmatter.title}>
           <header>
@@ -18,38 +20,8 @@ const Home = ({ about, posts, post }) => {
             <p>{frontmatter.description}</p>
           </section>
           <ReactMarkdown escapeHtml={false} source={content} />
-          <Header />
         </article>
       ))}
-
-      {posts.map(({ slug, frontmatter, content }) => (
-        <article key={frontmatter.title}>
-          <header>
-            <h3>{frontmatter.title}</h3>
-            <span>{frontmatter.date}</span>
-          </header>
-          <section>
-            <p>{frontmatter.description}</p>
-          </section>
-          <Link href={'/posts/[slug]'} as={`/posts/${slug}`}>
-            <a>{frontmatter.title}</a>
-          </Link>
-          <ReactMarkdown escapeHtml={false} source={content} />
-          <Header />
-        </article>
-      ))}
-
-      <article key={post.frontmatter.title}>
-        <header>
-          <h3>{post.frontmatter.title}</h3>
-          <span>{post.frontmatter.date}</span>
-        </header>
-        <section>
-          <p>{post.frontmatter.description}</p>
-        </section>
-        <ReactMarkdown escapeHtml={false} source={post.content} />
-        <Header />
-      </article>
     </div>
   );
 };
@@ -58,15 +30,14 @@ export async function getStaticProps() {
   const about = directoryContent('about');
   const posts = directoryContent('posts');
 
-  const post = fileContent('posts', `init.md`);
-
   return {
     props: {
       about,
       posts,
-      post,
     },
   };
 }
+
+Home.getLayout = (page) => <SiteLayout>{page}</SiteLayout>;
 
 export default Home;

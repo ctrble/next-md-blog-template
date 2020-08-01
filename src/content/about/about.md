@@ -4,6 +4,6 @@ description: About A Next JS Starter Blog
 date: 2020-07-23
 ---
 
-# About
+# About the Blog
 
 I guess this will be a blog.

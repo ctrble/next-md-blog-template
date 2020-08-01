@@ -4,6 +4,6 @@ description: About a blog post
 date: 2020-07-23
 ---
 
-# Init
+# The Main Header
 
 All blogs start somewhere.
