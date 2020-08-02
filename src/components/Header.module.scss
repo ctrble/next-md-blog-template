@@ -1,12 +1,10 @@
 @import 'src/lib/utilities.scss';
 
-$spacer: 1rem;
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacer;
+  padding: $spacer/2;
 
   // light/dark mode
   background-color: $primary-light-color;
@@ -22,12 +20,12 @@ $spacer: 1rem;
 }
 
 .link {
-  margin-right: $spacer;
+  margin-right: $spacer/2;
   &:last-of-type {
     margin-right: 0;
   }
   font-family: $sans-serif;
-  font-size: $spacer * 2;
+  font-size: $spacer;
   font-variation-settings: 'wght' 900;
   text-decoration: none;
 

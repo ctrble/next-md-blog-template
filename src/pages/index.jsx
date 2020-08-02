@@ -3,7 +3,7 @@ import React from 'react';
 import { directoryContent } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
-import Excerpt from 'src/components/Excerpt';
+import Excerpt from 'src/components/post/Excerpt';
 
 const Home = ({ posts }) => {
   return (

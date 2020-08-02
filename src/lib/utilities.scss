@@ -1,3 +1,7 @@
+// general
+
+$spacer: 2rem;
+
 // fonts
 
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@531&display=swap');
@@ -5,6 +9,8 @@
 
 $sans-serif: 'Epilogue', sans-serif;
 $serif: 'Kreon', serif;
+
+$body-font-size: 1.8rem;
 
 @mixin readability-width($font-size) {
   // calculates width of about 80 characters
@@ -29,7 +35,7 @@ $accent-light-color: $self-addressed-pinkish-brown;
 
 $annihilating-duck-egg-blue: #c3fbf4;
 $abstemious-off-blue: #5684ae;
-$divorced-black: #000000;
+$divorced-black: #1a1a1a;
 
 $primary-dark-color: $divorced-black;
 $secondary-dark-color: $annihilating-duck-egg-blue;

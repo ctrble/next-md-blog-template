@@ -1,0 +1,33 @@
+@import 'src/lib/utilities.scss';
+
+.excerpt {
+  @include readability-width($body-font-size);
+  margin-bottom: $spacer * 5;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer__link {
+  padding-bottom: 0.5rem;
+  font-family: $sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-variation-settings: 'wght' 900;
+  text-decoration: none;
+
+  // light/dark mode
+  color: $accent-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $accent-dark-color;
+  }
+  &:hover {
+    color: $primary-light-color;
+    @media (prefers-color-scheme: dark) {
+      color: $secondary-dark-color;
+    }
+  }
+  @include accent-focus-border-bottom(0.1rem);
+}

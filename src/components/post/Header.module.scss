@@ -1,0 +1,35 @@
+@import 'src/lib/utilities.scss';
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__title {
+  margin-bottom: $spacer/2;
+  font-family: $sans-serif;
+  font-size: 3.4rem;
+  font-variation-settings: 'wght' 300;
+
+  // light/dark mode
+  color: $primary-light-color;
+  border-bottom: 0.1rem solid $accent-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+    border-bottom: 0.1rem solid $accent-dark-color;
+  }
+}
+
+.header__date {
+  align-self: flex-end;
+  margin-bottom: $spacer;
+  font-family: $sans-serif;
+  font-size: 1.4rem;
+  font-variation-settings: 'wght' 700;
+
+  // light/dark mode
+  color: $accent-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $accent-dark-color;
+  }
+}

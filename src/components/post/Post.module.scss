@@ -1,0 +1,26 @@
+@import 'src/lib/utilities.scss';
+
+.post {
+  @include readability-width($body-font-size);
+  margin-bottom: $spacer * 5;
+}
+
+.post__description {
+  margin-bottom: $spacer * 2;
+  padding: 3rem;
+  font-size: 1.4rem;
+  font-family: $sans-serif;
+  border-radius: 0.5rem;
+
+  // light/dark mode
+  background-color: $accent-light-color;
+  box-shadow: inset 0 0 0 0.1rem $accent-light-color,
+    inset 0 0 0 0.5rem $secondary-light-color;
+  color: $secondary-light-color;
+  @media (prefers-color-scheme: dark) {
+    background-color: $accent-dark-color;
+    box-shadow: inset 0 0 0 0.1rem $accent-dark-color,
+      inset 0 0 0 0.5rem $primary-dark-color;
+    color: $primary-dark-color;
+  }
+}
