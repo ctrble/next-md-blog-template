@@ -1,10 +1,10 @@
 ---
 title: Continue
-description: I've got to find a way to escape the horrible ravages of youth. Suddenly, I'm going to the bathroom like clockwork, every three hours. And those jerks at Social Security stopped sending me checks. Now 'I'' have to pay ''them'!
+description: I've got to find a way to escape the horrible ravages of youth. Suddenly, I'm going to the bathroom like clockwork, every three hours. And those jerks at Social Security stopped sending me checks. Now I have to pay them!
 date: 2020-07-24
 ---
 
-I've got to find a way to escape the horrible ravages of youth. Suddenly, I'm going to the bathroom like clockwork, every three hours. And those jerks at Social Security stopped sending me checks. Now 'I'' have to pay ''them'!
+I've got to find a way to escape the horrible ravages of youth. Suddenly, I'm going to the bathroom like clockwork, every three hours. And those jerks at Social Security stopped sending me checks. Now **I** have to pay **them**!
 
 Well, then good news! It's a suppository. Well, then good news! It's a suppository. Yeah, lots of people did. Now that the, uh, garbage ball is in space, Doctor, perhaps you can help me with my sexual inhibitions?
 

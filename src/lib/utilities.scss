@@ -6,7 +6,14 @@
 $sans-serif: 'Epilogue', sans-serif;
 $serif: 'Kreon', serif;
 
-$page-color: gray;
+@mixin readability-width($font-size) {
+  // calculates width of about 80 characters
+  // `ch` units are based on the size of 0
+  // which is usually 70-80% wider than other chars
+  max-width: calc(80ch * 0.75);
+  font-size: $font-size;
+  width: 100%;
+}
 
 // light mode
 
@@ -27,3 +34,14 @@ $divorced-black: #000000;
 $primary-dark-color: $divorced-black;
 $secondary-dark-color: $annihilating-duck-egg-blue;
 $accent-dark-color: $abstemious-off-blue;
+
+@mixin accent-focus-border-bottom($size) {
+  outline: none;
+  border: $size dashed transparent;
+  &:focus {
+    border-bottom: $size dashed $accent-light-color;
+    @media (prefers-color-scheme: dark) {
+      border-bottom: $size dashed $accent-dark-color;
+    }
+  }
+}
