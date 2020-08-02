@@ -36,6 +36,7 @@ $secondary-dark-color: $annihilating-duck-egg-blue;
 $accent-dark-color: $abstemious-off-blue;
 
 @mixin accent-focus-border-bottom($size) {
+  // sets focus styles while preventing reflow/shift
   outline: none;
   border: $size dashed transparent;
   &:focus {
