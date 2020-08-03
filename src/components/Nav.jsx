@@ -4,14 +4,16 @@ import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const PostsNav = ({ count }) => {
+import styles from './Nav.module.scss';
+
+const Nav = ({ count }) => {
   const { data, error } = useSWR('/api/posts', fetcher);
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
   return (
-    <div>
+    <div className={styles.nav}>
       Latest Posts:
       <ul>
         {data.posts.slice(0, count).map(({ slug, frontmatter }) => (
@@ -26,4 +28,4 @@ const PostsNav = ({ count }) => {
   );
 };
 
-export default PostsNav;
+export default Nav;

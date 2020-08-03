@@ -10,6 +10,7 @@ const Home = ({ posts }) => {
     <>
       {posts.map(({ frontmatter, slug, content }) => (
         <Excerpt
+          key={slug}
           title={frontmatter.title}
           date={frontmatter.date}
           description={frontmatter.description}

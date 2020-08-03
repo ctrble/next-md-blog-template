@@ -1,11 +1,11 @@
 import React from 'react';
 
-import PostsNav from 'src/components/PostsNav';
+import Nav from 'src/components/Nav';
 
 const PostLayout = ({ children }) => {
   return (
     <div>
-      <PostsNav count={5} />
+      <Nav count={5} />
       {children}
     </div>
   );

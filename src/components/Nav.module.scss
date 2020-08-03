@@ -1,0 +1,29 @@
+@import 'src/lib/utilities.scss';
+
+.nav {
+  border: 1px solid red;
+  font-family: $sans-serif;
+  font-size: 2rem;
+
+  a {
+    // light/dark mode
+    color: $primary-light-color;
+    @media (prefers-color-scheme: dark) {
+      color: $secondary-dark-color;
+    }
+  }
+
+  // light/dark mode
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
+
+  ul,
+  ol {
+    margin-bottom: $spacer * 2;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
