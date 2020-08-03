@@ -15,11 +15,13 @@ const Nav = ({ count }) => {
   return (
     <div className={styles.nav}>
       Latest Posts:
-      <ul>
+      <ul className={styles.list}>
         {data.posts.slice(0, count).map(({ slug, frontmatter }) => (
-          <li key={slug}>
+          <li key={slug} className={styles.item}>
             <Link href={'/posts/[slug]'} as={`/posts/${slug}`}>
-              <a>{frontmatter.title}</a>
+              <a className={styles.link}>
+                {frontmatter.title}, {frontmatter.date}
+              </a>
             </Link>
           </li>
         ))}

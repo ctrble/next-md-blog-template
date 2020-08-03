@@ -1,29 +1,65 @@
 @import 'src/lib/utilities.scss';
 
 .nav {
-  border: 1px solid red;
-  font-family: $sans-serif;
+  margin-bottom: $spacer;
   font-size: 2rem;
-
-  a {
-    // light/dark mode
-    color: $primary-light-color;
-    @media (prefers-color-scheme: dark) {
-      color: $secondary-dark-color;
-    }
-  }
+  text-transform: uppercase;
+  font-family: $sans-serif;
+  font-variation-settings: 'wght' 200;
 
   // light/dark mode
   color: $primary-light-color;
   @media (prefers-color-scheme: dark) {
     color: $secondary-dark-color;
   }
+}
 
-  ul,
-  ol {
-    margin-bottom: $spacer * 2;
-    &:last-child {
-      margin-bottom: 0;
+.list {
+  margin: 0;
+}
+
+.item {
+  font-size: 1.2rem;
+  text-transform: initial;
+  font-variation-settings: 'wght' 400;
+  margin-bottom: 0.5rem;
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem 0;
+  margin: 0;
+  text-decoration: none;
+
+  @include accent-focus-border-bottom(0.1rem);
+
+  // light/dark mode
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
+  &:hover {
+    color: $accent-light-color;
+    @media (prefers-color-scheme: dark) {
+      color: $accent-dark-color;
+    }
+  }
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: 0.8rem;
+    bottom: 1rem;
+    left: -1rem;
+    width: 0.3rem;
+
+    // light/dark mode
+    background-color: $accent-light-color;
+    @media (prefers-color-scheme: dark) {
+      background-color: $accent-dark-color;
     }
   }
 }
