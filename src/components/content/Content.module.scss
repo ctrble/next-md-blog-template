@@ -1,0 +1,30 @@
+@import 'src/lib/utilities.scss';
+
+.content {
+  @include readability-width($body-font-size);
+  margin-bottom: $spacer * 5;
+}
+
+.header {
+  // light/dark mode
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
+}
+
+.description {
+  // light/dark mode
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
+}
+
+.body {
+  // light/dark mode
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    color: $secondary-dark-color;
+  }
+}

@@ -4,17 +4,17 @@ import ReactMarkdown from 'react-markdown/with-html';
 import { directoryContent } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
+import Content from 'src/components/content/Content';
 
 const About = ({ about }) => {
   return (
     <div>
       {about.map(({ frontmatter, content }) => (
-        <article key={frontmatter.title}>
-          <header>
-            <h3>{frontmatter.title}</h3>
-          </header>
-          <ReactMarkdown escapeHtml={false} source={content} />
-        </article>
+        <Content
+          title={frontmatter.title}
+          description={frontmatter.description}
+          content={content}
+        />
       ))}
     </div>
   );
