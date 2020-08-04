@@ -9,8 +9,8 @@ import styles from './Nav.module.scss';
 const Nav = ({ count }) => {
   const { data, error } = useSWR('/api/posts', fetcher);
 
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error) return <div className={styles.nav}>failed to load</div>;
+  if (!data) return <div className={styles.nav}>loading...</div>;
 
   return (
     <div className={styles.nav}>
