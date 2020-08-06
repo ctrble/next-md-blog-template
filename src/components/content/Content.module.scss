@@ -6,6 +6,10 @@
 }
 
 .header {
+  font-size: 3rem;
+  font-family: $sans-serif;
+  font-variation-settings: 'wght' 900;
+
   // light/dark mode
   color: $primary-light-color;
   @media (prefers-color-scheme: dark) {
@@ -14,14 +18,26 @@
 }
 
 .description {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  font-family: $sans-serif;
+  font-variation-settings: 'wght' 100;
+  border-top: 0.1rem solid;
+  border-bottom: 0.1rem solid;
+
   // light/dark mode
-  color: $primary-light-color;
+  border-color: $accent-light-color;
+  color: $accent-light-color;
   @media (prefers-color-scheme: dark) {
-    color: $secondary-dark-color;
+    border-color: $accent-dark-color;
+    color: $accent-dark-color;
   }
 }
 
 .body {
+  font-family: $serif;
+  font-size: $body-font-size;
+
   // light/dark mode
   color: $primary-light-color;
   @media (prefers-color-scheme: dark) {

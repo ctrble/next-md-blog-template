@@ -46,9 +46,9 @@ $accent-dark-color: $abstemious-off-blue;
   outline: none;
   border: $size dashed transparent;
   &:focus {
-    border-bottom: $size dashed $accent-light-color;
+    border-color: $accent-light-color;
     @media (prefers-color-scheme: dark) {
-      border-bottom: $size dashed $accent-dark-color;
+      border-color: $accent-dark-color;
     }
   }
 }

@@ -11,6 +11,7 @@ const About = ({ about }) => {
     <div>
       {about.map(({ frontmatter, content }) => (
         <Content
+          key={frontmatter.title}
           title={frontmatter.title}
           description={frontmatter.description}
           content={content}

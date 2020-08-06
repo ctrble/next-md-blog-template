@@ -10,13 +10,14 @@
   font-family: $sans-serif;
   font-size: 3.4rem;
   font-variation-settings: 'wght' 300;
+  border-bottom: 0.1rem solid;
 
   // light/dark mode
   color: $primary-light-color;
-  border-bottom: 0.1rem solid $accent-light-color;
+  border-color: $accent-light-color;
   @media (prefers-color-scheme: dark) {
     color: $secondary-dark-color;
-    border-bottom: 0.1rem solid $accent-dark-color;
+    border-color: $accent-dark-color;
   }
 }
 
