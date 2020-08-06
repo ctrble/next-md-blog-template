@@ -1,6 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
 
+import styles from './Search.module.scss';
+
 export default function Search() {
   const searchRef = useRef(null);
   const [query, setQuery] = useState('');
@@ -36,16 +38,17 @@ export default function Search() {
   }, []);
 
   return (
-    <div ref={searchRef}>
+    <div ref={searchRef} className={styles.search}>
       <input
+        type="text"
+        placeholder="Search posts"
+        className={styles.input}
+        value={query}
         onChange={onChange}
         onFocus={onFocus}
-        placeholder="Search posts"
-        type="text"
-        value={query}
       />
       {active && results.length > 0 && (
-        <ul>
+        <ul className={styles.results}>
           {results.map(({ slug, frontmatter }) => (
             <li key={slug}>
               <Link href="/posts/[slug]" as={`/posts/${slug}`}>

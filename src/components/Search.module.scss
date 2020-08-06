@@ -1,0 +1,43 @@
+@import 'src/lib/utilities.scss';
+
+@mixin form-border {
+  border: 0.2rem solid;
+  border-radius: 0.5rem;
+}
+
+.search {
+  position: relative;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  font-family: $sans-serif;
+  @include form-border();
+
+  // light/dark mode
+  border-color: $accent-light-color;
+  color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    border-color: $accent-dark-color;
+    color: $primary-dark-color;
+  }
+}
+
+.results {
+  padding: $spacer !important;
+  position: absolute;
+  top: 5.4rem; // because of borders
+  right: 0;
+  width: 50vw;
+  @include form-border();
+
+  // light/dark mode
+  background-color: $accent-light-color;
+  border-color: $primary-light-color;
+  color: $secondary-light-color;
+  @media (prefers-color-scheme: dark) {
+    border-color: $primary-dark-color;
+    background-color: $accent-dark-color;
+    color: $secondary-dark-color;
+  }
+}
