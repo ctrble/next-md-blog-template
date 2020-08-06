@@ -47,29 +47,24 @@ export default function Search() {
         onChange={onChange}
         onFocus={onFocus}
       />
-      <div
+      <ul
         className={`${styles.results} ${
           active && results.length > 0 ? styles.active : ''
         }`}
       >
         {active && results.length > 0 && (
-          <ul className={styles.list}>
+          <>
             {results.map(({ slug, frontmatter }) => (
               <li key={slug} className={styles.item}>
                 <Link href="/posts/[slug]" as={`/posts/${slug}`}>
-                  <a>{frontmatter.title}</a>
+                  <a className={styles.link}>{frontmatter.title}</a>
                 </Link>
                 {frontmatter.description}
               </li>
             ))}
-          </ul>
+          </>
         )}
-        {/* {!active && results.length == 0 && (
-          <div className={`${styles.input} ${styles.results}`} />
-          // <div />
-          // <></>
-        )} */}
-      </div>
+      </ul>
     </div>
   );
 }

@@ -59,3 +59,15 @@ $accent-dark-color: $abstemious-off-blue;
     }
   }
 }
+
+@mixin accent-focus-border-bottom-bright($size) {
+  // sets focus styles while preventing reflow/shift
+  outline: none;
+  border: $size dashed transparent;
+  &:focus {
+    border-color: $primary-light-color;
+    @media (prefers-color-scheme: dark) {
+      border-color: $secondary-dark-color;
+    }
+  }
+}
