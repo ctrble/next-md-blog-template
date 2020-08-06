@@ -21,7 +21,6 @@
 
 .link {
   margin-right: $spacer/2;
-  padding: 0 0.5rem;
   &:last-of-type {
     margin-right: 0;
   }
@@ -41,5 +40,6 @@
       color: $accent-dark-color;
     }
   }
+  @include sans-serif-line-height-faker;
   @include accent-focus-border-bottom(0.1rem);
 }
