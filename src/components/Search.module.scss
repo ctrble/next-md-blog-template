@@ -24,20 +24,65 @@
 }
 
 .results {
-  padding: $spacer !important;
   position: absolute;
-  top: 5.4rem; // because of borders
+  top: 5.3rem;
   right: 0;
   width: 50vw;
-  @include form-border();
+  border-radius: 0.5rem;
+  overflow: hidden;
 
-  // light/dark mode
+  // animation
+  transition: opacity 100ms cubic-bezier(0.85, 0, 0.15, 1),
+    background-color 200ms cubic-bezier(0.85, 0, 0.15, 1);
+
+  // hidden state w/ light/dark mode
+  opacity: 0;
+  border: 0rem solid transparent;
   background-color: $accent-light-color;
-  border-color: $primary-light-color;
+  @media (prefers-color-scheme: dark) {
+    background-color: $primary-dark-color;
+  }
+
+  // revealed state
+  &.active {
+    opacity: 1;
+    border: 0.2rem solid;
+
+    // light/dark mode
+    border-color: $primary-light-color;
+    background-color: $accent-light-color;
+    @media (prefers-color-scheme: dark) {
+      border-color: $secondary-dark-color;
+      background-color: $accent-dark-color;
+    }
+  }
+}
+
+.list {
+  // light/dark mode
   color: $secondary-light-color;
   @media (prefers-color-scheme: dark) {
-    border-color: $primary-dark-color;
-    background-color: $accent-dark-color;
     color: $secondary-dark-color;
+  }
+}
+
+.item {
+  font-family: $sans-serif;
+  padding: $spacer;
+
+  border-left: 0.6rem solid;
+  border-right: 0.6rem solid;
+  border-bottom: 0.6rem solid;
+
+  // light/dark mode
+  border-color: $secondary-light-color;
+  &:first-of-type {
+    border-top: 0.6rem solid $secondary-light-color;
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: $primary-dark-color;
+    &:first-of-type {
+      border-top: 0.6rem solid $primary-dark-color;
+    }
   }
 }
