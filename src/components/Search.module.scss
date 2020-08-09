@@ -1,10 +1,5 @@
 @import 'src/lib/utilities.scss';
 
-@mixin form-border {
-  border: 0.2rem solid;
-  border-radius: 0.5rem;
-}
-
 .search {
   position: relative;
 }
@@ -12,14 +7,24 @@
 .input {
   padding: 0.5rem 1rem;
   font-family: $sans-serif;
-  @include form-border();
+  border: none;
+  border-radius: 0.5rem;
 
   // light/dark mode
-  border-color: $accent-light-color;
-  color: $primary-light-color;
+  color: $secondary-light-color;
+  background-color: $accent-light-color;
   @media (prefers-color-scheme: dark) {
-    border-color: $accent-dark-color;
-    color: $primary-dark-color;
+    color: $secondary-dark-color;
+    background-color: $accent-dark-color;
+  }
+
+  &:focus {
+    // sets focus styles while preventing reflow/shift
+    outline-offset: 0.5rem;
+    outline: 0.1rem dashed $accent-light-color;
+    @media (prefers-color-scheme: dark) {
+      outline: 0.1rem dashed $accent-dark-color;
+    }
   }
 }
 
