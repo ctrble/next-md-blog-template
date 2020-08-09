@@ -28,6 +28,7 @@
   font-size: $spacer;
   font-variation-settings: 'wght' 900;
   text-decoration: none;
+  transition: $link-transition;
 
   // light/dark mode
   color: $secondary-light-color;

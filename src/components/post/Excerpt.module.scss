@@ -9,12 +9,13 @@
   justify-content: flex-end;
 }
 
-.footer__link {
+.link {
   font-family: $sans-serif;
   text-align: center;
   font-size: 2rem;
   font-variation-settings: 'wght' 900;
   text-decoration: none;
+  transition: $link-transition;
 
   // light/dark mode
   color: $accent-light-color;

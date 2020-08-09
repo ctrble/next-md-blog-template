@@ -33,6 +33,7 @@
   position: relative;
   margin: 0;
   text-decoration: none;
+  transition: $link-transition;
 
   @include accent-focus-border-bottom(0.1rem);
   @include sans-serif-line-height-faker;

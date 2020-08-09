@@ -113,6 +113,7 @@ $search-spaced-height: 2;
   font-variation-settings: 'wght' 600;
   text-transform: uppercase;
   text-decoration: none;
+  transition: $link-transition;
 
   @include accent-focus-border-bottom-bright(0.1rem);
   @include sans-serif-line-height-faker;
@@ -121,5 +122,11 @@ $search-spaced-height: 2;
   color: $primary-light-color;
   @media (prefers-color-scheme: dark) {
     color: $secondary-dark-color;
+  }
+  &:hover {
+    color: $secondary-light-color;
+    @media (prefers-color-scheme: dark) {
+      color: $primary-dark-color;
+    }
   }
 }
