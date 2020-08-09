@@ -6,8 +6,15 @@
   justify-content: flex-start;
   align-items: center;
   padding: 50px 2rem;
+
+  // light/dark mode
   background-color: $secondary-light-color;
   @media (prefers-color-scheme: dark) {
     background-color: $primary-dark-color;
   }
+}
+
+.content {
+  flex: 1 1 auto;
+  @include readability-width($body-font-size);
 }

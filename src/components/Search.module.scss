@@ -33,9 +33,17 @@
   z-index: 100;
   top: 5.3rem;
   right: 0;
-  width: 50vw;
   border-radius: 0.5rem;
   overflow: hidden;
+
+  // sizing
+  width: 75vw;
+  width: calc(100vw - 3.5rem);
+  @media (min-width: 500px) {
+    width: 50vw;
+    width: calc(50vw - 2.5rem);
+    max-width: 40rem;
+  }
 
   // animation
   transition: opacity 100ms cubic-bezier(0.85, 0, 0.15, 1),

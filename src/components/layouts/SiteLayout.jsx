@@ -6,7 +6,9 @@ import styles from './SiteLayout.module.scss';
 const SiteLayout = ({ children }) => (
   <>
     <Header />
-    <main className={styles.layout}>{children}</main>
+    <main className={styles.layout}>
+      <section className={styles.content}>{children}</section>
+    </main>
   </>
 );
 

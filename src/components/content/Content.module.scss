@@ -1,7 +1,6 @@
 @import 'src/lib/utilities.scss';
 
 .content {
-  @include readability-width($body-font-size);
   margin-bottom: $spacer * 5;
 }
 
