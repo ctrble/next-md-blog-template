@@ -18,7 +18,7 @@ const Nav = ({ count }) => {
       <ul className={styles.list}>
         {data.posts.slice(0, count).map(({ slug, frontmatter }) => (
           <li key={slug} className={styles.item}>
-            <Link href={'/posts/[slug]'} as={`/posts/${slug}`}>
+            <Link href="/posts/[slug]" as={`/posts/${slug}`}>
               <a className={styles.link}>
                 {frontmatter.title}, {frontmatter.date}
               </a>
