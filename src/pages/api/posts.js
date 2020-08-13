@@ -3,5 +3,7 @@ import { directoryContent } from 'src/lib/getContent';
 const posts = directoryContent('posts');
 
 export default (req, res) => {
-  res.status(200).json(JSON.stringify({ posts }));
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ posts }));
 };
