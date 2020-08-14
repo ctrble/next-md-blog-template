@@ -2,7 +2,10 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 // import getConfig from 'next/config';
+
 // const { serverRuntimeConfig } = getConfig();
+
+// serverRuntimeConfig.PROJECT_ROOT
 
 const formattedDate = (date) => {
   // get day in format: Month day, Year. e.g. April 19, 2020
