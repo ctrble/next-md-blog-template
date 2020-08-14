@@ -2,7 +2,6 @@ import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 // import getConfig from 'next/config';
-
 // const { serverRuntimeConfig } = getConfig();
 
 // serverRuntimeConfig.PROJECT_ROOT
@@ -28,6 +27,7 @@ export const fileContent = (directory, file) => {
   const filePath = path.resolve(`./public/content/${directory}/${file}`);
 
   // retrieve content from file
+  // const markdownWithMetadata = await fs.readFile(filePath).toString();
   const markdownWithMetadata = fs.readFileSync(filePath).toString();
 
   // parse markdown and format date
