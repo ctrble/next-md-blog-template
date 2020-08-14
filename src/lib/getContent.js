@@ -1,3 +1,4 @@
+import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
@@ -8,10 +9,12 @@ const formattedDate = (date) => {
 };
 
 export const fileContent = (directory, file) => {
+  const filePath = path.resolve(
+    `${process.cwd()}/src/content/${directory}/${file}`
+  );
+
   // retrieve content from file
-  const markdownWithMetadata = fs
-    .readFileSync(`${process.cwd()}/src/content/${directory}/${file}`)
-    .toString();
+  const markdownWithMetadata = fs.readFileSync(filePath).toString();
 
   // parse markdown and format date
   const { data, content } = matter(markdownWithMetadata);
@@ -29,11 +32,12 @@ export const fileContent = (directory, file) => {
 };
 
 export const directoryContent = (directory) => {
-  // get files from content directory
-  const files = fs.readdirSync(
-    `${process.cwd()}/src/content/${directory}`,
-    'utf8'
+  const directoryPath = path.resolve(
+    `${process.cwd()}/src/content/${directory}`
   );
+
+  // get files from content directory
+  const files = fs.readdirSync(directoryPath, 'utf8');
 
   // retrieve content from files
   const fileContents = files
