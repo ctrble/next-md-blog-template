@@ -1,6 +1,8 @@
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
+// import getConfig from 'next/config';
+// const { serverRuntimeConfig } = getConfig();
 
 const formattedDate = (date) => {
   // get day in format: Month day, Year. e.g. April 19, 2020
@@ -9,9 +11,18 @@ const formattedDate = (date) => {
 };
 
 export const fileContent = (directory, file) => {
-  const filePath = path.resolve(
-    `${process.cwd()}/src/content/${directory}/${file}`
-  );
+  // const filePath = fs.readFile(
+  //   path.join(
+  //     serverRuntimeConfig.PROJECT_ROOT,
+  //     `${process.cwd()}/src/content/${directory}/${file}`
+  //   )
+  // );
+
+  // const filePath = path.resolve(
+  //   `${process.cwd()}/src/content/${directory}/${file}`
+  // );
+
+  const filePath = path.resolve(`./public/content/${directory}/${file}`);
 
   // retrieve content from file
   const markdownWithMetadata = fs.readFileSync(filePath).toString();
@@ -32,9 +43,18 @@ export const fileContent = (directory, file) => {
 };
 
 export const directoryContent = (directory) => {
-  const directoryPath = path.resolve(
-    `${process.cwd()}/src/content/${directory}`
-  );
+  // const directoryPath = fs.readFile(
+  //   path.join(
+  //     serverRuntimeConfig.PROJECT_ROOT,
+  //     `${process.cwd()}/src/content/${directory}`
+  //   )
+  // );
+
+  // const directoryPath = path.resolve(
+  //   `${process.cwd()}/src/content/${directory}`
+  // );
+
+  const directoryPath = path.resolve(`./public/content/${directory}`);
 
   // get files from content directory
   const files = fs.readdirSync(directoryPath, 'utf8');
@@ -50,7 +70,10 @@ export const directoryContent = (directory) => {
 };
 
 export const slugs = (directory) => {
-  const files = fs.readdirSync(`${process.cwd()}/src/content/${directory}`);
+  const filesPath = path.resolve(`./public/content/${directory}`);
+
+  // const files = fs.readdirSync(`${process.cwd()}/src/content/${directory}`);
+  const files = fs.readdirSync(filesPath);
 
   const paths = files.map((file) => ({
     params: {
