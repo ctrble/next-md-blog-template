@@ -29,8 +29,10 @@ export const fileContent = (directory, file) => {
   };
 };
 
-export const directoryContent = (directory, rootPath = '') => {
-  const directoryPath = path.resolve(`./public/content/${directory}`);
+export const directoryContent = (directory, fullPath = '') => {
+  // search for the given directory, and accept an override if needed
+  const directoryPath =
+    fullPath === '' ? `${process.cwd()}/public/content/${directory}` : fullPath;
 
   // get files from content directory
   const files = fs.readdirSync(directoryPath, 'utf8');
@@ -48,7 +50,6 @@ export const directoryContent = (directory, rootPath = '') => {
 export const slugs = (directory) => {
   const filesPath = path.resolve(`./public/content/${directory}`);
 
-  // const files = fs.readdirSync(`${process.cwd()}/src/content/${directory}`);
   const files = fs.readdirSync(filesPath);
 
   const paths = files.map((file) => ({

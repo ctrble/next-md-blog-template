@@ -1,7 +1,10 @@
 import FuzzySearch from 'fuzzy-search';
+import path from 'path';
 import { directoryContent } from 'src/lib/getContent';
 
-const posts = directoryContent('posts');
+// resolving the path within the API tells the build to include files in the directory
+const directoryPath = path.resolve(`./public/content/posts`);
+const posts = directoryContent('posts', directoryPath);
 
 export default (req, res) => {
   const searcher = new FuzzySearch(
@@ -12,8 +15,6 @@ export default (req, res) => {
     }
   );
   const results = searcher.search(req.query.q);
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ results }));
+  const formattedResults = JSON.stringify({ results });
+  res.status(200).json(formattedResults);
 };

@@ -10,7 +10,6 @@ const fetcher = async (url) => fetch(url).then((res) => res.json());
 
 const Home = ({ posts }) => {
   const { data, error } = useSWR('/api/posts', fetcher);
-  console.log(data);
 
   return (
     <>
@@ -30,7 +29,6 @@ const Home = ({ posts }) => {
 
 export async function getStaticProps() {
   const posts = directoryContent('posts');
-  console.log('hello');
 
   return {
     props: {
