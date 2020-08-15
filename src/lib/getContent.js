@@ -45,7 +45,7 @@ export const fileContent = (directory, file) => {
   };
 };
 
-export const directoryContent = (directory) => {
+export const directoryContent = (directory, rootPath = '') => {
   // const directoryPath = fs.readFile(
   //   path.join(
   //     serverRuntimeConfig.PROJECT_ROOT,
@@ -57,7 +57,10 @@ export const directoryContent = (directory) => {
   //   `${process.cwd()}/src/content/${directory}`
   // );
 
-  const directoryPath = path.resolve(`./public/content/${directory}`);
+  // const path = overridePath ? overridePath : directory;
+
+  // const directoryPath = path.resolve(`./public/content/${directory}`);
+  const directoryPath = path.join(rootPath, `./public/content/${directory}`);
 
   // get files from content directory
   const files = fs.readdirSync(directoryPath, 'utf8');

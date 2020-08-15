@@ -1,6 +1,8 @@
 import { directoryContent } from 'src/lib/getContent';
+import getConfig from 'next/config';
+const { serverRuntimeConfig } = getConfig();
 
-const posts = directoryContent('posts');
+const posts = directoryContent('posts', serverRuntimeConfig.PROJECT_ROOT);
 
 export default (req, res) => {
   // res.statusCode = 200;
