@@ -59,8 +59,8 @@ export const directoryContent = (directory, rootPath = '') => {
 
   // const path = overridePath ? overridePath : directory;
 
-  // const directoryPath = path.resolve(`./public/content/${directory}`);
-  const directoryPath = path.join(rootPath, `./public/content/${directory}`);
+  const directoryPath = path.resolve(`./public/content/${directory}`);
+  // const directoryPath = path.join(rootPath, `./public/content/${directory}`);
 
   // get files from content directory
   const files = fs.readdirSync(directoryPath, 'utf8');
