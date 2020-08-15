@@ -1,10 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
-// import getConfig from 'next/config';
-// const { serverRuntimeConfig } = getConfig();
-
-// serverRuntimeConfig.PROJECT_ROOT
 
 const formattedDate = (date) => {
   // get day in format: Month day, Year. e.g. April 19, 2020
@@ -13,21 +9,9 @@ const formattedDate = (date) => {
 };
 
 export const fileContent = (directory, file) => {
-  // const filePath = fs.readFile(
-  //   path.join(
-  //     serverRuntimeConfig.PROJECT_ROOT,
-  //     `${process.cwd()}/src/content/${directory}/${file}`
-  //   )
-  // );
-
-  // const filePath = path.resolve(
-  //   `${process.cwd()}/src/content/${directory}/${file}`
-  // );
-
   const filePath = path.resolve(`./public/content/${directory}/${file}`);
 
   // retrieve content from file
-  // const markdownWithMetadata = await fs.readFile(filePath).toString();
   const markdownWithMetadata = fs.readFileSync(filePath).toString();
 
   // parse markdown and format date
@@ -46,21 +30,7 @@ export const fileContent = (directory, file) => {
 };
 
 export const directoryContent = (directory, rootPath = '') => {
-  // const directoryPath = fs.readFile(
-  //   path.join(
-  //     serverRuntimeConfig.PROJECT_ROOT,
-  //     `${process.cwd()}/src/content/${directory}`
-  //   )
-  // );
-
-  // const directoryPath = path.resolve(
-  //   `${process.cwd()}/src/content/${directory}`
-  // );
-
-  // const path = overridePath ? overridePath : directory;
-
   const directoryPath = path.resolve(`./public/content/${directory}`);
-  // const directoryPath = path.join(rootPath, `./public/content/${directory}`);
 
   // get files from content directory
   const files = fs.readdirSync(directoryPath, 'utf8');
