@@ -1,6 +1,9 @@
+import path from 'path';
 import { directoryContent } from 'src/lib/getContent';
 import getConfig from 'next/config';
 const { serverRuntimeConfig } = getConfig();
+
+const directoryPath = path.resolve(`./public/content/posts`);
 
 const posts = directoryContent('posts', serverRuntimeConfig.PROJECT_ROOT);
 
