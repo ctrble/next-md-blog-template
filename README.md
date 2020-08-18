@@ -3,9 +3,11 @@
 This is a basic blog template that includes:
 
 - Next.js app using SSR, API routes, and persistent layouts
-- SCSS modules
+- SCSS modules and variable fonts
 - Content sourced from Markdown files
 - Search
+
+Test the [demo](https://next-md-blog-template.vercel.app/) out for yourself.
 
 ## Getting Started
 
