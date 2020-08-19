@@ -23,6 +23,24 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Development
+
+Blog posts are stored in `./public/content/posts`. Blog posts should follow this format, with the filename used as the post's slug:
+
+```markdown
+---
+title: Blog Post Title
+description: A description of the blog post
+date: year-month-day
+---
+
+Blog post body.
+```
+
+Other site content is in `./public/content/about` and follows the same format as posts.
+
+Retrieving and parsing the site content is done with `./src/lib/getContent.js`.
+
 ## Deployment
 
 This project is most easily deployed via [Vercel](https://vercel.com/), but should work on other platforms if they support serverless functions. You may need to install and configure additional packages if you deploy elsewhere, such as [next-on-netlify](https://github.com/FinnWoelm/next-on-netlify) if you'd prefer to use Netlify.
