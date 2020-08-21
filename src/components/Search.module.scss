@@ -17,6 +17,12 @@
     color: $secondary-dark-color;
     background-color: $accent-dark-color;
   }
+  &::placeholder {
+    color: $secondary-light-color;
+    @media (prefers-color-scheme: dark) {
+      color: $secondary-dark-color;
+    }
+  }
 
   &:focus {
     // sets focus styles while preventing reflow/shift
