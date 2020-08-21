@@ -41,6 +41,12 @@ Other site content is in `./public/content/about` and follows the same format as
 
 Retrieving and parsing the site content is done with `./src/lib/getContent.js`.
 
+## Browser Support
+
+Next.js comes with [polyfills](https://nextjs.org/docs/basic-features/supported-browsers-features) and [CSS support](https://nextjs.org/docs/advanced-features/customizing-postcss-config) for IE11 and modern browsers.
+
+Browserslist is also used to determine supported browsers and provide those settings to other tools like Babel and Autoprefixer. The rules can be updated in the `browserslist` key `package.json`, and the current settings can be easily viewed at [browsersl.ist](https://browsersl.ist/?q=%3E0.3%25%2C+not+ie+11%2C+not+dead%2C+not+op_mini+all).
+
 ## Deployment
 
 This project is most easily deployed via [Vercel](https://vercel.com/), but should work on other platforms if they support serverless functions. You may need to install and configure additional packages if you deploy elsewhere, such as [next-on-netlify](https://github.com/FinnWoelm/next-on-netlify) if you'd prefer to use Netlify.
