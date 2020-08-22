@@ -17,6 +17,7 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-lazyload": "^3.0.0",
     "react-markdown": "^4.3.1",
     "sass": "^1.26.10",
     "swr": "^0.3.0"
