@@ -1,26 +1,37 @@
 @import 'src/lib/utilities.scss';
 
 @mixin search-sizing {
-  width: 75vw;
-  width: calc(100vw - 3.5rem);
-  @media (min-width: 500px) {
-    width: 50vw;
-    width: calc(50vw - 2.5rem);
+  width: 100%;
+  @media (min-width: $tablet) {
+    width: 50%;
+  }
+  @media (min-width: $desktop) {
+    width: 35%;
+  }
+  @media (min-width: $wide) {
+    width: 35rem;
   }
 }
 
 .search {
   position: absolute;
-  right: $spacer/2; // nav padding
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  // mimic nav padding
+  right: $spacer/2;
+  left: $spacer/2;
 }
 
 .input {
+  pointer-events: all;
   padding: 0.5rem 1rem;
   font-family: $sans-serif;
   font-size: 1.6rem;
   border: none;
   border-radius: 0.5rem;
-  width: 7.7rem; // cheap fit to placeholder text size
+  width: 15rem;
+  transition: width 250ms ease-in-out;
 
   // light/dark mode
   color: $secondary-light-color;
@@ -36,7 +47,6 @@
     }
   }
 
-  transition: width 250ms ease-in-out;
   &:focus {
     @include search-sizing();
 
