@@ -61,6 +61,7 @@
 
 .results {
   position: absolute;
+  pointer-events: all;
   z-index: 100;
   top: 5.3rem;
   right: 0;
