@@ -41,7 +41,7 @@ export default function Search() {
     <div ref={searchRef} className={styles.search}>
       <input
         type="text"
-        placeholder="Search posts"
+        placeholder="Search"
         className={styles.input}
         value={query}
         onChange={onChange}
