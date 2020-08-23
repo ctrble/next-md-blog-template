@@ -1,7 +1,7 @@
 .revealer {
   // this fades in the image as soon as it loads
   > img {
-    animation-duration: 600ms;
+    animation-duration: 1500ms;
     animation-name: reveal;
     animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
   }
