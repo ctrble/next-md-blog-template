@@ -4,14 +4,16 @@ import ReactMarkdown from 'react-markdown/with-html';
 import Header from './Header';
 import Body from './Body';
 import Image from 'src/components/Image';
+import Code from 'src/components/Code';
 
 import styles from './Post.module.scss';
 
-const imagesWithoutPTags = (props) => {
+const OverrideRenderers = (props) => {
   const element = props.children[0];
 
   // workaround: https://github.com/rexxars/react-markdown/issues/184#issuecomment-522491275
   // images get nested in p tags, which the lazy loader then wraps in a div
+
   return element.type === 'img' ? (
     <Image key={element.key} src={element.props.src} alt={element.props.alt} />
   ) : (
@@ -29,7 +31,11 @@ const Post = ({ title, date, description, content }) => (
       <ReactMarkdown
         escapeHtml={false}
         source={content}
-        renderers={{ paragraph: imagesWithoutPTags }}
+        renderers={{
+          paragraph: OverrideRenderers,
+          code: Code,
+          inlineCode: (props) => <Code inline {...props} />,
+        }}
       />
     </Body>
   </article>
