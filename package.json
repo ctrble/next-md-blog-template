@@ -21,7 +21,8 @@
     "react-markdown": "^4.3.1",
     "react-syntax-highlighter": "^13.5.1",
     "sass": "^1.26.10",
-    "swr": "^0.3.0"
+    "swr": "^0.3.0",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

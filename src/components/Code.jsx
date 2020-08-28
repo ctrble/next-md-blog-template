@@ -1,32 +1,44 @@
 import React, { useEffect, useState } from 'react';
+import useDarkMode from 'use-dark-mode';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { srcery } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import {
+  // srcery,
+  gruvboxLight,
+  gruvboxDark,
+} from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const Code = ({ value, language, inline }) => {
+  const initialState = false;
+  const darkMode = useDarkMode(initialState);
+
   const codeTagProps = {
     display: 'inline',
-    border: '1px solid red',
     lineHeight: '1',
-    padding: '0.25rem 0.5rem 0.4rem 0.5rem',
+    padding: '0.25rem 0.75rem 0.4rem 0.75rem',
     borderRadius: '0.5rem',
     border: '0.1rem dotted gray',
   };
 
   const preTagProps = {
-    border: '1px solid red',
     lineHeight: '1',
     padding: '1.25rem 1.5rem',
-    borderRadius: '0.5rem',
-    border: '0.1rem dotted gray',
-    scrollbarWidth: 'thin',
-    scrollbarColor: 'black gray',
     overflow: 'auto',
+    borderRadius: '0.5rem',
+    border: `0.1rem dotted ${
+      darkMode.value ? gruvboxDark.hljs.color : gruvboxLight.hljs.color
+    }`,
+    scrollbarWidth: 'thin',
+    scrollbarColor: `${
+      darkMode.value
+        ? gruvboxDark['hljs-comment'].color
+        : gruvboxLight['hljs-comment'].color
+    } ${darkMode.value ? gruvboxDark.hljs.color : gruvboxLight.hljs.color}`,
   };
 
   return inline ? (
     <SyntaxHighlighter
       language={language}
-      style={srcery}
+      style={darkMode.value ? gruvboxDark : gruvboxLight}
       customStyle={codeTagProps}
       PreTag="span"
     >
@@ -35,7 +47,7 @@ const Code = ({ value, language, inline }) => {
   ) : (
     <SyntaxHighlighter
       language={language}
-      style={srcery}
+      style={darkMode.value ? gruvboxDark : gruvboxLight}
       customStyle={preTagProps}
       showLineNumbers
     >
