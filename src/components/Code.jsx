@@ -12,17 +12,33 @@ const Code = ({ value, language, inline }) => {
     border: '0.1rem dotted gray',
   };
 
+  const preTagProps = {
+    border: '1px solid red',
+    lineHeight: '1',
+    padding: '1.25rem 1.5rem',
+    borderRadius: '0.5rem',
+    border: '0.1rem dotted gray',
+    scrollbarWidth: 'thin',
+    scrollbarColor: 'black gray',
+    overflow: 'auto',
+  };
+
   return inline ? (
     <SyntaxHighlighter
       language={language}
-      PreTag="span"
-      customStyle={codeTagProps}
       style={srcery}
+      customStyle={codeTagProps}
+      PreTag="span"
     >
       {value}
     </SyntaxHighlighter>
   ) : (
-    <SyntaxHighlighter language={language} showLineNumbers style={srcery}>
+    <SyntaxHighlighter
+      language={language}
+      style={srcery}
+      customStyle={preTagProps}
+      showLineNumbers
+    >
       {value}
     </SyntaxHighlighter>
   );
