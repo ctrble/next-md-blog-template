@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-
-// https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/212
-// import { srcery } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { srcery } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const Code = ({ value, language, inline }) => {
   const codeTagProps = {
-    display: inline,
+    display: 'inline',
+    border: '1px solid red',
+    lineHeight: '1',
+    padding: '0.25rem 0.5rem 0.4rem 0.5rem',
+    borderRadius: '0.5rem',
+    border: '0.1rem dotted gray',
   };
 
   return inline ? (
@@ -14,16 +17,12 @@ const Code = ({ value, language, inline }) => {
       language={language}
       PreTag="span"
       customStyle={codeTagProps}
-      // style={srcery}
+      style={srcery}
     >
       {value}
     </SyntaxHighlighter>
   ) : (
-    <SyntaxHighlighter
-      language={language}
-      showLineNumbers
-      // style={srcery}
-    >
+    <SyntaxHighlighter language={language} showLineNumbers style={srcery}>
       {value}
     </SyntaxHighlighter>
   );
