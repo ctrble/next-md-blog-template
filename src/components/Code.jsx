@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import useDarkMode from 'use-dark-mode';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {
-  // srcery,
   gruvboxLight,
   gruvboxDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
@@ -10,6 +9,16 @@ import {
 const Code = ({ value, language, inline }) => {
   const initialState = false;
   const darkMode = useDarkMode(initialState);
+  const [isMounted, setIsMounted] = useState(initialState);
+  const [isDarkMode, setIsDarkMode] = useState(initialState);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setIsDarkMode(isMounted && darkMode.value);
+  }, [isMounted, darkMode]);
 
   const codeTagProps = {
     display: 'inline',
@@ -25,20 +34,20 @@ const Code = ({ value, language, inline }) => {
     overflow: 'auto',
     borderRadius: '0.5rem',
     border: `0.1rem dotted ${
-      darkMode.value ? gruvboxDark.hljs.color : gruvboxLight.hljs.color
+      isDarkMode ? gruvboxDark.hljs.color : gruvboxLight.hljs.color
     }`,
     scrollbarWidth: 'thin',
     scrollbarColor: `${
-      darkMode.value
+      isDarkMode
         ? gruvboxDark['hljs-comment'].color
         : gruvboxLight['hljs-comment'].color
-    } ${darkMode.value ? gruvboxDark.hljs.color : gruvboxLight.hljs.color}`,
+    } ${isDarkMode ? gruvboxDark.hljs.color : gruvboxLight.hljs.color}`,
   };
 
   return inline ? (
     <SyntaxHighlighter
       language={language}
-      style={darkMode.value ? gruvboxDark : gruvboxLight}
+      style={isDarkMode ? gruvboxDark : gruvboxLight}
       customStyle={codeTagProps}
       PreTag="span"
     >
@@ -47,7 +56,7 @@ const Code = ({ value, language, inline }) => {
   ) : (
     <SyntaxHighlighter
       language={language}
-      style={darkMode.value ? gruvboxDark : gruvboxLight}
+      style={isDarkMode ? gruvboxDark : gruvboxLight}
       customStyle={preTagProps}
       showLineNumbers
     >
