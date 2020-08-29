@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import useDarkMode from 'use-dark-mode';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {
@@ -63,6 +64,17 @@ const Code = ({ value, language, inline }) => {
       {value}
     </SyntaxHighlighter>
   );
+};
+
+Code.propTypes = {
+  value: PropTypes.string.isRequired,
+  language: PropTypes.string,
+  inline: PropTypes.bool,
+};
+
+Code.defaultProps = {
+  language: null,
+  inline: false,
 };
 
 export default Code;

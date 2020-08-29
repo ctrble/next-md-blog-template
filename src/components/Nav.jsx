@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import useSWR from 'swr';
 
-const fetcher = async (url) => fetch(url).then((res) => res.json());
-
 import styles from './Nav.module.scss';
+
+const fetcher = async (url) => fetch(url).then((res) => res.json());
 
 const Nav = ({ count }) => {
   const { data, error } = useSWR('/api/posts', fetcher);
@@ -28,6 +29,10 @@ const Nav = ({ count }) => {
       </ul>
     </div>
   );
+};
+
+Nav.propTypes = {
+  count: PropTypes.number.isRequired,
 };
 
 export default Nav;

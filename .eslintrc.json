@@ -1,6 +1,10 @@
 {
+  "plugins": ["babel", "react", "jsx-a11y"],
   "extends": [
     "airbnb",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "prettier",
     "prettier/react"
   ],
@@ -16,5 +20,15 @@
     "es6": true,
     "node": true,
     "jquery": false
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off" // https://nextjs.org/docs/api-reference/next/link
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "."] // used with Nextjs absolute imports
+      }
+    }
   }
 }

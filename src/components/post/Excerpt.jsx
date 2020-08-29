@@ -15,7 +15,7 @@ const Excerpt = ({ title, date, description, slug, content }) => (
     </Body>
 
     <footer className={styles.footer}>
-      <Link href={'/posts/[slug]'} as={`/posts/${slug}`}>
+      <Link href="/posts/[slug]" as={`/posts/${slug}`}>
         <a className={styles.link}>Read Post ➡︎</a>
       </Link>
     </footer>

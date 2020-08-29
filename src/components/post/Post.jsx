@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown/with-html';
 
-import Header from './Header';
-import Body from './Body';
 import Image from 'src/components/Image';
 import Code from 'src/components/Code';
+import Header from './Header';
+import Body from './Body';
 
 import styles from './Post.module.scss';
 

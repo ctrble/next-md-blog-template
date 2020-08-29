@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Nav from 'src/components/Nav';
 
@@ -9,6 +10,14 @@ const PostLayout = ({ children }) => {
       {children}
     </>
   );
+};
+
+PostLayout.propTypes = {
+  children: PropTypes.node,
+};
+
+PostLayout.defaultProps = {
+  children: null,
 };
 
 export default PostLayout;

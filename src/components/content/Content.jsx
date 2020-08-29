@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown/with-html';
 
 import styles from './Content.module.scss';
@@ -16,5 +17,11 @@ const Content = ({ title, description, content }) => (
     </div>
   </article>
 );
+
+Content.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 
 export default Content;
