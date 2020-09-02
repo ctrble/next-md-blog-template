@@ -1,31 +1,24 @@
 import React from 'react';
-import useSWR from 'swr';
+import PropTypes from 'prop-types';
 
 import { directoryContent } from 'src/lib/getContent';
 
 import SiteLayout from 'src/components/layouts/SiteLayout';
 import Excerpt from 'src/components/post/Excerpt';
 
-const fetcher = async (url) => fetch(url).then((res) => res.json());
-
-const Home = ({ posts }) => {
-  const { data, error } = useSWR('/api/posts', fetcher);
-
-  return (
-    <>
-      {posts.map(({ frontmatter, slug, content }) => (
-        <Excerpt
-          key={slug}
-          title={frontmatter.title}
-          date={frontmatter.date}
-          description={frontmatter.description}
-          slug={slug}
-          content={content}
-        />
-      ))}
-    </>
-  );
-};
+const Home = ({ posts }) => (
+  <>
+    {posts.map(({ frontmatter, slug }) => (
+      <Excerpt
+        key={slug}
+        title={frontmatter.title}
+        date={frontmatter.date}
+        description={frontmatter.description}
+        slug={slug}
+      />
+    ))}
+  </>
+);
 
 export async function getStaticProps() {
   const posts = directoryContent('posts');
@@ -37,6 +30,14 @@ export async function getStaticProps() {
   };
 }
 
+/* eslint-disable react/display-name */
 Home.getLayout = (page) => <SiteLayout>{page}</SiteLayout>;
+/* eslint-enable react/display-name */
+
+Home.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+  ).isRequired,
+};
 
 export default Home;

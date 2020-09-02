@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
+import PropTypes from 'prop-types';
 
 import { directoryContent } from 'src/lib/getContent';
 
@@ -31,6 +31,14 @@ export async function getStaticProps() {
   };
 }
 
+/* eslint-disable react/display-name */
 About.getLayout = (page) => <SiteLayout>{page}</SiteLayout>;
+/* eslint-enable react/display-name */
+
+About.propTypes = {
+  about: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+  ).isRequired,
+};
 
 export default About;

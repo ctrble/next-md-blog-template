@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
 
 import { fileContent, slugs } from 'src/lib/getContent';
 
@@ -37,7 +36,7 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
-Slug.getLayout = (page, posts, test) => (
+Slug.getLayout = (page) => (
   <SiteLayout>
     <PostLayout>{page}</PostLayout>
   </SiteLayout>

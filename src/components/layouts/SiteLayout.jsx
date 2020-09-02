@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../Header';
 
 import styles from './SiteLayout.module.scss';
@@ -11,5 +12,9 @@ const SiteLayout = ({ children }) => (
     </main>
   </div>
 );
+
+SiteLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default SiteLayout;

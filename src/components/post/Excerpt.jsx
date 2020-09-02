@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 import Header from './Header';
@@ -6,7 +7,7 @@ import Body from './Body';
 
 import styles from './Excerpt.module.scss';
 
-const Excerpt = ({ title, date, description, slug, content }) => (
+const Excerpt = ({ title, date, description, slug }) => (
   <article key={title} className={styles.excerpt}>
     <Header title={title} date={date} />
 
@@ -21,5 +22,12 @@ const Excerpt = ({ title, date, description, slug, content }) => (
     </footer>
   </article>
 );
+
+Excerpt.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+};
 
 export default Excerpt;

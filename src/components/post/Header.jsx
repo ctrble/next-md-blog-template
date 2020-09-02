@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Header.module.scss';
 
@@ -8,5 +9,10 @@ const Header = ({ title, date }) => (
     <span className={styles.header__date}>{date}</span>
   </header>
 );
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+};
 
 export default Header;
