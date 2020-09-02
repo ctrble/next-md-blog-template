@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { fileContent, slugs } from 'src/lib/getContent';
 
@@ -36,10 +37,23 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
+/* eslint-disable react/display-name */
 Slug.getLayout = (page) => (
   <SiteLayout>
     <PostLayout>{page}</PostLayout>
   </SiteLayout>
 );
+/* eslint-enable react/display-name */
+
+Slug.propTypes = {
+  post: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Slug;

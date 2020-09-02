@@ -76,7 +76,7 @@
 
   // hidden state w/ light/dark mode
   opacity: 0;
-  border: 0rem solid transparent;
+  border: 0 solid transparent;
   background-color: $accent-light-color;
   @media (prefers-color-scheme: dark) {
     background-color: $primary-dark-color;
@@ -112,7 +112,6 @@ $search-spaced-height: 2;
   padding-bottom: $search-spacer;
   padding-left: $search-spacer + $search-spacer-outer;
   padding-right: $search-spacer + $search-spacer-outer;
-
   border-left: 0.6rem solid;
   border-right: 0.6rem solid;
   border-bottom: 0.6rem solid;
