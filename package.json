@@ -11,6 +11,7 @@
     "format-all": "prettier write ."
   },
   "dependencies": {
+    "deployment-badge": "^1.1.0",
     "eslint-plugin-react": "^7.20.6",
     "fs": "^0.0.1-security",
     "fuzzy-search": "^3.2.1",
