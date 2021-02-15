@@ -21,7 +21,7 @@
     "react-dom": "16.13.1",
     "react-lazyload": "^3.2.0",
     "react-markdown": "^4.3.1",
-    "react-syntax-highlighter": "^13.5.1",
+    "react-syntax-highlighter": "^15.4.3",
     "sass": "^1.26.10",
     "swr": "^0.3.0",
     "use-dark-mode": "^2.3.1"
