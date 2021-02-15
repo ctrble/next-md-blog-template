@@ -1,4 +1,3 @@
-![Version](https://img.shields.io/github/package-json/v/ctrble/next-md-blog-template)
 [![Deployment Status](https://img.shields.io/endpoint?url=https://next-md-blog-template.vercel.app/api/deployment)](https://next-md-blog-template.vercel.app/)
 
 # NextJS Starter Blog Template with Markdown Files
