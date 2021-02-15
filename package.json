@@ -15,7 +15,7 @@
     "fs": "^0.0.1-security",
     "fuzzy-search": "^3.2.1",
     "gray-matter": "^4.0.2",
-    "next": "9.4.4",
+    "next": "10.0.6",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
